@@ -3,4 +3,4 @@ WORKDIR /app
 COPY . /app
 RUN apt -qq update
 RUN pip install -r requirements.txt
-CMD ["python", "botai.py"]
+CMD ["python", "botmrg_grp.py"]
