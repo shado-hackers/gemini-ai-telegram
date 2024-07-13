@@ -16,7 +16,7 @@
 
 ## ☁️ Cloud Host:
 
-<a href="https://app.koyeb.com/deploy?type=git&repository=github.com/AbhiTheModder/gemini-ai-telegram&branch=main&name=gemini"><img src="https://www.koyeb.com/static/images/deploy/button.svg">
+<a href="https://app.koyeb.com/deploy?type=git&repository=https://github.com/shado-hackers/gemini-ai-telegram&branch=main&name=gemini"><img src="https://www.koyeb.com/static/images/deploy/button.svg">
 
 ## 🐋 Docker:
 **[Instructions](docker.md)**
