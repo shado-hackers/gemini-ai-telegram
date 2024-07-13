@@ -154,5 +154,4 @@ async def say(_, message: Message):
         await message.reply_text(f"<b>Usage: </b><code>/aiseller [target audience] [reply to product image]</code>")
 
 # Run the bot
-if __name__ == "__main__":
     app.run()
