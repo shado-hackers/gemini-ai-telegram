@@ -12,7 +12,7 @@ from pyrogram import Client, filters, enums
 from pyrogram.types import Message
 from configs import Config
 
-from configs import API_KEY
+
 
 
 generation_config_cook = {
