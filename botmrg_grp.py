@@ -1,6 +1,9 @@
 # This scripts contains use cases for simple bots
 # import requirements 
 import os
+import random
+import logging
+import aiohttp
 import asyncio
 import PIL.Image
 import google.generativeai as genai
@@ -37,7 +40,7 @@ model_cook = genai.GenerativeModel(model_name="gemini-pro-vision",
 app = Client("gemini_ai", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 @app.on_message(filters.command("askai") & filters.group)
-async def say(_, message: Message):
+async def askai(_, message: Message):
     try:
         i = await message.reply_text("<code>Please Wait...</code>")
 
@@ -75,7 +78,7 @@ async def say(_, message: Message):
         await message.reply_text(f"An error occurred: {str(e)}")
 
 @app.on_message(filters.command("getai") & filters.group)
-async def say(_, message: Message):
+async def getai(_, message: Message):
     try:
         i = await message.reply_text("<code>Please Wait...</code>")
 
@@ -95,7 +98,7 @@ async def say(_, message: Message):
         await message.reply_text(str(e))
 
 @app.on_message(filters.command("aicook") & filters.group)
-async def say(_, message: Message):
+async def aicook(_, message: Message):
     try:
         i = await message.reply_text("<code>Cooking...</code>")
 
@@ -119,7 +122,7 @@ async def say(_, message: Message):
         await message.reply_text(str(e))
 
 @app.on_message(filters.command("aiseller") & filters.group)
-async def say(_, message: Message):
+async def aisell(_, message: Message):
     try:
         i = await message.reply_text("<code>Generating...</code>")
         if len(message.command) > 1:
@@ -153,5 +156,4 @@ async def say(_, message: Message):
         await i.delete()
         await message.reply_text(f"<b>Usage: </b><code>/aiseller [target audience] [reply to product image]</code>")
 
-# Run the bot
-    app.run()
+ app.run()
