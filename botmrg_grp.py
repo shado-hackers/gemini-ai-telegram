@@ -146,28 +146,29 @@ async def aicook(_, message: Message):
         await i.delete()
         await message.reply_text(str(e))
 
+
 @app.on_message(filters.command("aiseller") & filters.group)
 async def aisell(_, message: Message):
     try:
         i = await message.reply_text("<code>Generating...</code>")
         if len(message.command) > 1:
-         taud = message.text.split(maxsplit=1)[1]
+            taud = message.text.split(maxsplit=1)[1]
         else:
-         await i.delete()
-         await message.reply_text(
-            f"<b>Usage: </b><code>/aiseller [target audience] [reply to product image]</code>"
-        )
-         return
+            await i.delete()
+            await message.reply_text(
+                f"<b>Usage: </b><code>/aiseller [target audience] [reply to product image]</code>"
+            )
+            return
 
         base_img = await message.reply_to_message.download()
 
         img = PIL.Image.open(base_img)
         sell_img = [
-        "Given an image of a product and its target audience, write an engaging marketing description",
-        "Product Image: ",
-        img,
-        "Target Audience: ",
-        taud
+            "Given an image of a product and its target audience, write an engaging marketing description",
+            "Product Image: ",
+            img,
+            "Target Audience: ",
+            taud
         ]
 
         response = model.generate_content(sell_img)
@@ -181,4 +182,4 @@ async def aisell(_, message: Message):
         await i.delete()
         await message.reply_text(f"<b>Usage: </b><code>/aiseller [target audience] [reply to product image]</code>")
 
- app.run()
+app.run()
