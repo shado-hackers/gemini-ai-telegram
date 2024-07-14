@@ -10,7 +10,7 @@ import google.generativeai as genai
 from pathlib import Path
 from pyrogram import Client, filters, enums
 from pyrogram.types import Message
-
+from configs import Config
 generation_config_cook = {
   "temperature": 0.35,
   "top_p": 0.95,
@@ -37,8 +37,21 @@ model_text = genai.GenerativeModel("gemini-pro")
 model_cook = genai.GenerativeModel(model_name="gemini-pro-vision",
                               generation_config=generation_config_cook)
 # configure pyrogram client 
-app = Client("gemini_ai", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
+#app = Client("gemini_ai", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(threadName)s %(name)s %(message)s",
+    handlers=[logging.StreamHandler(), logging.FileHandler("log.txt")],
+)
+
+
+
+app = Client(
+    api_id=Config.API_ID,
+    api_hash=Config.API_HASH,
+    bot_token=Config.BOT_TOKEN
+)
 
 @app.on_message(filters.command("start") & filters.private)
 async def start(_, message):
