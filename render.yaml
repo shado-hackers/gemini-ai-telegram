@@ -3,9 +3,9 @@ services:
   - type: web
     name: aibot 
     env: python
-    startCommand: python3 bot.py
+    startCommand: python3 botmrg_grp.py
     buildCommand: pip3 install -U -r requirements.txt
-    repo: https://github.com/shado-hackers/Toolesbot.git # optional
+    repo: https://github.com/shado-hackers/gemini-ai-telegram.git # optional
     region: oregon # optional (defaults to oregon)
     plan: free # optional (defaults to starter)
     branch: main # optional (defaults to master)
