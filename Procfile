@@ -1,1 +1,1 @@
-web: python3 botmrg_grp.py
+worker: python3 botmrg_grp.py
