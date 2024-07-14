@@ -39,6 +39,18 @@ model_cook = genai.GenerativeModel(model_name="gemini-pro-vision",
 # configure pyrogram client 
 app = Client("gemini_ai", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
+
+@app.on_message(filters.command("start") & filters.private)
+async def start(_, message):
+        chat = model_text.start_chat()
+        prompt = "Hi i am a ai bot"
+        response = chat.send_message(prompt)
+
+        await message.reply_text(f"{response.text}", parse_mode=enums.ParseMode.MARKDOWN)
+
+
+
+
 @app.on_message(filters.command("askai") & filters.group)
 async def askai(_, message: Message):
     try:
