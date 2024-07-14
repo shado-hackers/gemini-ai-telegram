@@ -11,6 +11,10 @@ from pathlib import Path
 from pyrogram import Client, filters, enums
 from pyrogram.types import Message
 from configs import Config
+
+from configs import API_KEY
+
+
 generation_config_cook = {
   "temperature": 0.35,
   "top_p": 0.95,
@@ -20,13 +24,15 @@ generation_config_cook = {
 
 # API KEYS
 # Gemini Ai API KEY
-#API_KEY= os.environ['API_KEY']
+API_KEY= os.environ['API_KEY']
 # Telegram Auth API ID
 #API_ID = os.environ['API_ID']
 # Telegram Auth API HASH
 #API_HASH = os.environ['API_HASH']
 # Telegram Bot API TOKEN generated from @botfather
 #BOT_TOKEN = os.environ['BOT_TOKEN']
+
+
 
 # configure API KEY for gemini 
 genai.configure(api_key=API_KEY)
